@@ -1,75 +1,93 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+##  Dataset Content
+For this project, I worked with three core datasets:
+- Features_data_set.csv – Store-level attributes, including promotional events and holiday indicators.
+- Sales_data.csv – Historical weekly sales data across various departments.
+- Stores_data.csv – Store metadata such as size and type classification.
+Each dataset was structured with appropriate indexing, cleaned for missing values, and transformed to ensure consistency for analysis.
 
-Welcome,
+ Business Requirements
+The objective of this analysis was to uncover trends in retail sales performance while optimizing key business metrics: ✔ Detect seasonal or promotional impacts on weekly sales.
+ Compare store types (A, B, C) and performance differences.
+Assess feature scaling for standardizing store size comparisons.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+Hypothesis and Validation Strategy
+Hypothesis 1: Holiday promotions significantly influence sales trends.
+Validation: Compare holiday vs. non-holiday sales distributions using boxplots and statistical analysis.
+Hypothesis 2: Larger stores tend to generate higher revenue.
+Validation: Normalize Size using MinMaxScaler, then correlate store size with total sales via scatter plots.
+Hypothesis 3: Promotional events create measurable spikes in weekly sales.
+Validation: Overlay event occurrences on sales trend charts to measure impact.
 
-## How to use this repo
+🛠 Project Plan & Data Management
+ETL Workflow
+ Extract: Read raw datasets and verify their structure.
+ Transform: Apply data cleaning techniques (handling null values, duplicate removal, feature scaling).
+ Load: Store processed datasets in an organized folder structure for further visualization.
+ Data Processing: Pandas for manipulation, Scikit-learn for feature scaling.
+ Storage: CSV format in the processed/ directory for seamless loading.
+Analysis: Matplotlib, Seaborn, and Plotly for visualization.
 
-1. Use this template to create your GitHub project repo. Click the Use this template button, then click Create a new repository.
+Mapping Business Requirements to Visualizations
+| Requirement | Visual Technique | 
+| Holiday impact on sales | Boxplot (sns.boxplot()) | 
+| Store performance | Scatter plot (px.scatter()) | 
+| Weekly sales trends | Line chart (px.line()) | 
+| Feature scaling impact | Histogram (sns.histplot()) | 
 
-1. Copy the URL of your repository to your clipboard.
 
-1. In VS Code, select File - Open Folder.
+Analysis Techniques Used
+Correlation Analysis – Measured relationships between store attributes and sales.
+Time-Series Trends – Visualized fluctuations in sales over time.
+Feature Engineering – Applied scaling methods to normalize store size differences.
+Challenge: Some feature scaling approaches produced biased results. The solution was to test multiple methods (StandardScaler vs. MinMaxScaler) before settling on the optimal approach.
 
-1. Select your vscode-projects folder, then click the Select Folder button on Windows, or Open button on Mac.
+Use of AI for Ideation & Code Optimization
+Generative AI tools helped refine my approach in various ways:
+Suggested best practices for handling missing values in datasets.
+Provided alternative visualization techniques for readability improvements.
+Assisted in debugging dependency conflicts with Pandas, Plotly and Seaborn installations.
 
-1. From the top menu in VS Code, select Terminal > New Terminal to open the terminal.
+Ethical Considerations
+- Bias in promotional events: Some sales spikes were due to region-specific campaigns, requiring careful contextual interpretation.
+- Data privacy: Ensured no personally identifiable information was included in analysis.
+- Fairness in comparisons: Normalized store sizes to prevent skewed interpretations.
 
-1. In the terminal, type git clone followed by the URL of your GitHub repository. Then hit Enter. This command will download all the files in your GitHub repository into your vscode-projects folder.
+ Unfixed Bugs & Framework Limitations
+ Challenges Encountered
+Issue: FileNotFoundError due to incorrect dataset paths.
+ Solution: Used os.path.exists() and adjusted working directories.
+Issue: Overlapping x-axis labels in time-series plots.
+Solution: Applied plt.xticks(rotation=45) for better readability.
+ Unfixed Bugs
+While most bugs were resolved, some framework-specific limitations remained:
+- Plotly sometimes misaligned date labels under certain zoom settings.
+- Large datasets caused memory overflow issues in Jupyter Notebook during high-resolution plotting.
 
-1. In VS Code, select File > Open Folder again.
+Development Roadmap
+✔ Implemented automated data pipeline for seamless ETL processing.
+✔ Built modularized notebooks for easy debugging.
+✔ Designed interactive dashboards for dynamic filtering capabilities.
+Next Steps: Expand analysis with predictive modeling using Scikit-learn’s regression techniques.
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click Select Folder.
+Data Analysis Libraries Used
+| Library | Usage Example | 
+| Pandas | Data cleaning (df.dropna()) | 
+| NumPy | Mathematical computations (np.mean()) | 
+| Matplotlib | Static charts (plt.plot()) | 
+| Seaborn | Statistical visualizations (sns.boxplot()) | 
+| Plotly | Interactive dashboards (px.scatter()) | 
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select Command Palette to open the VS Code command palette.
 
-1. In the command palette, type: create environment and select Python: Create Environment…
 
-1. Choose Venv from the dropdown list.
+## Credits & References
+✔ Data sources curated from Kaggle and open retail datasets.
+✔ Visualization insights refined using examples from Seaborn Docs and Plotly Guide.
+✔ Tutorials referenced for debugging GitHub workflows and deployment strategies.
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+## Acknowledgements
+A huge thanks to peers who provided valuable feedback, helping to refine methodology and improve visualization clarity.
 
-1. DO NOT click the box next to requirements.txt, as you need to do more steps before you can install your dependencies. Click OK.
 
-1. You will see a .venv folder appear in the file explorer pane to show that the virtual environment has been created.
-
-1. Important: Please add the .venv to your .gitignore file
-
-1. Return to the terminal by clicking on the TERMINAL tab or click on the Terminal menu and choose New Terminal if no terminal is currently open.
-
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
- `pip3 install -r requirements.txt`
-
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
-
-1. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.12.2 as it inherits from the workspace, so it will be Python-3.12.2 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-* Set the runtime.txt Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
