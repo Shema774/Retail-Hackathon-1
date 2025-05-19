@@ -8,7 +8,7 @@ For this project, I worked with three core datasets:
 Each dataset was structured with appropriate indexing, cleaned for missing values, and transformed to ensure consistency for analysis.
 
  Business Requirements
-The objective of this analysis was to uncover trends in retail sales performance while optimizing key business metrics: ✔ Detect seasonal or promotional impacts on weekly sales.
+The objective of this analysis was to uncover trends in retail sales performance while optimizing key business metrics. Detect seasonal or promotional impacts on weekly sales.
  Compare store types (A, B, C) and performance differences.
 Assess feature scaling for standardizing store size comparisons.
 
@@ -21,7 +21,7 @@ Validation: Normalize Size using MinMaxScaler, then correlate store size with to
 Hypothesis 3: Promotional events create measurable spikes in weekly sales.
 Validation: Overlay event occurrences on sales trend charts to measure impact.
 
-🛠 Project Plan & Data Management
+Project Plan & Data Management
 ETL Workflow
  Extract: Read raw datasets and verify their structure.
  Transform: Apply data cleaning techniques (handling null values, duplicate removal, feature scaling).
@@ -55,21 +55,20 @@ Ethical Considerations
 - Data privacy: Ensured no personally identifiable information was included in analysis.
 - Fairness in comparisons: Normalized store sizes to prevent skewed interpretations.
 
- Unfixed Bugs & Framework Limitations
+Unfixed Bugs & Framework Limitations
  Challenges Encountered
 Issue: FileNotFoundError due to incorrect dataset paths.
- Solution: Used os.path.exists() and adjusted working directories.
+Solution: Used os.path.exists() and adjusted working directories.
 Issue: Overlapping x-axis labels in time-series plots.
 Solution: Applied plt.xticks(rotation=45) for better readability.
- Unfixed Bugs
+Unfixed Bugs
 While most bugs were resolved, some framework-specific limitations remained:
 - Plotly sometimes misaligned date labels under certain zoom settings.
 - Large datasets caused memory overflow issues in Jupyter Notebook during high-resolution plotting.
 
 Development Roadmap
-✔ Implemented automated data pipeline for seamless ETL processing.
-✔ Built modularized notebooks for easy debugging.
-✔ Designed interactive dashboards for dynamic filtering capabilities.
+Implemented automated data pipeline for seamless ETL processing.
+Built modularized notebooks for easy debugging.
 Next Steps: Expand analysis with predictive modeling using Scikit-learn’s regression techniques.
 
 Data Analysis Libraries Used
@@ -83,9 +82,9 @@ Data Analysis Libraries Used
 
 
 ## Credits & References
-✔ Data sources curated from Kaggle and open retail datasets.
-✔ Visualization insights refined using examples from Seaborn Docs and Plotly Guide.
-✔ Tutorials referenced for debugging GitHub workflows and deployment strategies.
+ Data sources curated from Kaggle and open retail datasets.
+ Visualization insights refined using examples from Seaborn Docs and Plotly Guide.
+ Tutorials referenced for debugging GitHub workflows and deployment strategies.
 
 ## Acknowledgements
 A huge thanks to peers who provided valuable feedback, helping to refine methodology and improve visualization clarity.
